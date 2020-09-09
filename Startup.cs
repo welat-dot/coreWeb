@@ -27,9 +27,10 @@ namespace webapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-           var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
+            var sql = "server=localhost;user=root;password=welat123;database=coreDb;";
+          // var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<WCdBContext>(options => options.UseMySql(
-                sqlConnectionString,
+                sql,
                  b => b.MigrationsAssembly("welat")
                 )
             );

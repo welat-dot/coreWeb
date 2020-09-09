@@ -11,36 +11,26 @@ using dal.ORM.EFCore;
 using Microsoft.EntityFrameworkCore;
 using entities.tables;
 
+
 namespace webapp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private  WCdBContext db;
-
+        
+        public createConStr costr;
         public HomeController(ILogger<HomeController> logger,WCdBContext con)
         {
             _logger = logger;
             db = con;
-
+           
         }
 
         public IActionResult Index()
         {
-            Menus m = new Menus();
-            m.menuAd = "sss";
-            m.ustId = 0;
-           
 
-          
-
-                db.Add(m);
-            db.SaveChanges();
-               
-                
-                
-                string s = "welat";
-           
+            db.Users.ToList();
             return View();
         }
 
